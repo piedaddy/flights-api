@@ -22,6 +22,7 @@ function App() {
   const [selectedDestination, setSelectedDestination] = useState('')
   const [isDirect, setIsDirect] = useState(false)
   const [firstOffset, setFirstOffset] = useState(0)
+
   // const [secondOffset, setSecondOffset] = useState(2)
 
   const airportCodes = {
@@ -44,6 +45,7 @@ function App() {
     const response = await fetch(`${url}?partner=picky&fly_from=${selectedOrigin}&fly_to=${selectedDestination}&limit=20`)
     const data = await response.json()
     setSearchResult(data.data)
+
     setLoading(false)
     } catch (err) {
       console.log('error', err)
@@ -110,6 +112,9 @@ function App() {
               <button onClick={handleSearchClick} className="button" >Submit Search</button>
               <div className="direct">
               {/* <button onClick={handleSearchClick} className="checkbox" >Direct Flights Only</button> */}
+              <label>Search for destination</label>
+              <input type="text" value=""></input>
+
               </div>
             </div>
           </div>
